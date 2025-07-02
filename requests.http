@@ -1,0 +1,9 @@
+POST http://localhost:4004/odata/v4/processor/createItem
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Test item",
+  "descr": "test descr",
+  "quantity": 101
+}

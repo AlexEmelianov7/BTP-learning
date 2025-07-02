@@ -24,7 +24,6 @@ service ProcessorService {
         descr : String,
         quantity : Integer
     ) returns Items;
-
 }
 
 annotate ProcessorService.Incidents with @odata.draft.enabled;
