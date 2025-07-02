@@ -16,6 +16,9 @@ service ProcessorService {
         title,
         customer
     };
+
+    entity Items as projection on my.Items;
+    function getItemsByQuantity(quantity: Integer) returns array of Items;
 }
 
 annotate ProcessorService.Incidents with @odata.draft.enabled;
