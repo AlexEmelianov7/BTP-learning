@@ -6,7 +6,11 @@ class ProcessorService extends cds.ApplicationService {
         this.before("UPDATE", "Incidents", (req) => this.onUpdate(req));
         this.after("READ", "Incidents", () => this.getCustomers());
         this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
+
         this.on("getItemsByQuantity", (quantity) => this.getItemsByQuantity(quantity));
+        this.on("createItem", (req) => this.createItem(req));
+        this.before('CREATE', 'Items', (req) => this.validateItemQuantity(req));
+
         return super.init();
     }
 
@@ -38,6 +42,25 @@ class ProcessorService extends cds.ApplicationService {
         const { Items } = cds.entities;
         const items = await SELECT.from(Items).where({ quantity });
         return items;
+    }
+
+    async createItem(req) {
+        const { Items } = cds.entities;
+        const { title, descr, quantity } = req.data;
+        const item = await INSERT.into(Items).entries({
+            title,
+            descr,
+            quantity
+        });
+    
+        return item;
+    }
+
+    async validateItemQuantity(req) {
+        const { quantity } = req.data;
+                if (quantity > 100) {
+          return req.reject(400, `Quantity exceeds allowed maximum (100)`);
+        }
     }
 }
 
