@@ -8,7 +8,7 @@ class ProcessorService extends cds.ApplicationService {
         this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
 
         this.on("getItemsByQuantity", (quantity) => this.getItemsByQuantity(quantity));
-        this.on("createItem", (req) => this.createItem(req));
+        this.on("createItem", (req) => this.createItemHandler(req));
         this.before('createItem', (req) => this.validateItemQuantity(req));
 
         return super.init();
@@ -44,7 +44,7 @@ class ProcessorService extends cds.ApplicationService {
         return items;
     }
 
-    async createItem(req) {
+    async createItemHandler(req) {
         const { Items } = cds.entities;
         const { title, descr, quantity } = req.data;
         const item = await INSERT.into(Items).entries({
