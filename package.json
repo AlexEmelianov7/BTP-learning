@@ -10,10 +10,17 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-test": "^0.4.0",
+    "@cap-js/cds-types": "^0.10.0",
     "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.10.0"
+    "axios": "^1.10.0",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "chai-subset": "^1.6.0",
+    "jest": "^30.0.4"
   },
   "scripts": {
+    "test": "jest tests/test.js",
     "start": "cds-serve",
     "watch-incidents": "cds watch --open incidents/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-incident-list-freestyle": "cds watch --open incident-list-freestyle/webapp/index.html?sap-ui-xx-viewCache=false"
