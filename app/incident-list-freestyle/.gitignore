@@ -22,6 +22,7 @@ mta_archives/
 /dist
 /resources
 
+
 # Other
 .DS_Store
 *.orig

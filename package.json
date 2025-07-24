@@ -6,19 +6,20 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^2.1.1",
     "@sap-cloud-sdk/connectivity": "^3.26.4",
     "@sap-cloud-sdk/http-client": "^3.26.4",
     "@sap-cloud-sdk/resilience": "^3.26.4",
     "@sap-cloud-sdk/util": "^3.26.4",
-    "@sap/cds": "^8",
-    "express": "^4",
-    "@cap-js/hana": "^2",
-    "@sap/xssec": "^4"
+    "@sap/cds": "^9.1.0",
+    "@sap/xssec": "^4",
+    "express": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-test": "^0.4.0",
-    "@cap-js/cds-types": "^0.10.0",
-    "@cap-js/sqlite": "^1",
+    "@cap-js/cds-types": "^0.13.0",
+    "@cap-js/sqlite": "^2.0.2",
+    "@sap/cds-dk": ">=8",
     "axios": "^1.10.0",
     "chai": "^4.5.0",
     "chai-as-promised": "^7.1.2",
