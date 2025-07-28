@@ -61,6 +61,22 @@
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER"
       },
+      "northwind": {
+        "kind": "odata-v2",
+        "model": "srv/external/northwind",
+        "credentials": {
+          "url": "https://services.odata.org/Northwind/Northwind.svc"
+        }
+      },
+      "[hybrid]": {
+        "northwind": {
+          "kind": "odata-v2",
+          "model": "srv/external/northwind",
+          "credentials": {
+            "destination": "northwind_dest"
+          }
+        }
+      },
       "[production]": {
         "db": "hana",
         "auth": "xsuaa"

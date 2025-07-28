@@ -6,13 +6,15 @@ class ProcessorService extends cds.ApplicationService {
         this.before("UPDATE", "Incidents", (req) => this.onUpdate(req));
         this.after("READ", "Incidents", () => this.getCustomers());
         this.before("CREATE", "Incidents", (req) => this.changeUrgencyDueToSubject(req.data));
-        this.on("READ", "Customers", (req) => this.onCustomerRead(req));
+
 
         this.on("getItemsByQuantity", (quantity) => this.getItemsByQuantity(quantity));
         this.on("createItem", (req) => this.createItemHandler(req));
         this.before("createItem", (req) => this.validateItemQuantity(req));
 
+        this.on("READ", "Customers", (req) => this.onCustomerRead(req));
         this.on(["CREATE", "UPDATE"], "Incidents", (req, next) => this.onCustomerCache(req, next));
+
         this.S4bupa = await cds.connect.to("API_BUSINESS_PARTNER");
         this.remoteService = await cds.connect.to("RemoteService");
 

@@ -1,9 +1,14 @@
-POST http://localhost:4004/odata/v4/processor/createItem
-Content-Type: application/json
-Accept: application/json
+# POST http://localhost:4004/odata/v4/processor/createItem
+# Authorization: Basic YWxpY2U6
+# Content-Type: application/json
+# Accept: application/json
 
-{
-  "title": "Test item",
-  "descr": "test descr",
-  "quantity": 101
-}
+# {
+#   "title": "Test item",
+#   "descr": "test descr",
+#   "quantity": 101
+# }
+
+GET http://localhost:4004/odata/v4/remote/getExternalOrders
+
+# GET http://localhost:4004/odata/v4/remote/getExternalOrdersDest
